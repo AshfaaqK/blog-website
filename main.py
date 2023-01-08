@@ -68,10 +68,6 @@ class Comment(db.Model):
     parent_post = relationship("BlogPost", back_populates="comments")
 
 
-with app.app_context():
-    db.create_all()
-
-
 def admin_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
